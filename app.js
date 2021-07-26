@@ -17,6 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ...
 
 // Add the route handlers here:
+// app.use("/", indexRouter);
+// app.use("/users", usersRouter);
+// app.use("/beers", require("/routes/beers"));
 
 app.get('/', (req, res) => {
   res.render('index');
