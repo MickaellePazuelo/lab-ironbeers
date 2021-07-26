@@ -1,4 +1,6 @@
 const express = require('express');
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
 const hbs = require('hbs');
 const path = require('path');
@@ -17,12 +19,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ...
 
 // Add the route handlers here:
-// app.use("/", indexRouter);
-// app.use("/users", usersRouter);
-// app.use("/beers", require("/routes/beers"));
+ app.use("/", indexRouter);
+ app.use("/users", usersRouter);
+ app.use("/beers", require("./routes/beers"));
+ 
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));

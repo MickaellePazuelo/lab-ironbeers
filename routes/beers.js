@@ -2,19 +2,14 @@ const express = require("express");
 const router = express.Router();
 // const mongoose = require("mongoose");
 
-router.get('', function(req, res){
-    res.json({ 'success' : true });
+router.get("/", (req, res) => {
+    res.render("beers.hbs")
 });
 
-router.get("/beers", (req, res) => {
-console.log(req.query);
-
-beers.find(req.query)
-.then((beersDocuments) => {
-    res.render("beers.hbs", {
-        beers:beersDocuments,
-    });
-})
-.catch((error) =>
-console.log(error));
+router.get("/random-beer", (req, res) => {
+    res.render("random-beer.hbs")
 });
+
+
+
+module.exports = router;
